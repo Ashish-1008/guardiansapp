@@ -138,6 +138,8 @@ class _ReturnedBooksState extends State<ReturnedBooks> {
               padding: EdgeInsets.only(top: 20),
               scrollDirection: Axis.horizontal,
               child: DataTable(
+                headingRowColor:
+                    MaterialStateColor.resolveWith((states) => Colors.blueGrey),
                 columns: const <DataColumn>[
                   DataColumn(
                     label: Text(
@@ -177,16 +179,14 @@ class _ReturnedBooksState extends State<ReturnedBooks> {
                       DataCell(Text('${state.content[index]['author']}')),
                       DataCell(Text('${state.content[index]['publication']}')),
                       DataCell(Text(
-                        DateFormat.yMd().add_jm().format(
-                              DateTime.parse(
-                                  state.content[index]['borrow_date']),
-                            ),
+                        DateFormat.yMd().format(
+                          DateTime.parse(state.content[index]['borrow_date']),
+                        ),
                       )),
                       DataCell(Text(
-                        DateFormat.yMd().add_jm().format(
-                              DateTime.parse(
-                                  state.content[index]['returned_date']),
-                            ),
+                        DateFormat.yMd().format(
+                          DateTime.parse(state.content[index]['returned_date']),
+                        ),
                       )),
                       // DataCell(Text('Student')),
                     ],

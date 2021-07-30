@@ -11,6 +11,7 @@ import 'package:guardiansapp/screens/Billing.dart';
 import 'package:guardiansapp/screens/Events.dart';
 import 'package:guardiansapp/screens/Notice.dart';
 import 'package:guardiansapp/screens/library.dart';
+import 'package:guardiansapp/screens/result.dart';
 
 import '../MyColors.dart';
 
@@ -349,10 +350,8 @@ class _HomePageBodyState extends State<HomePageBody> {
                       children: [
                         GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (_) => ExamForm()));
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) => Session()));
                             },
                             child: Container(
                               padding: EdgeInsets.fromLTRB(15, 10, 0, 0),

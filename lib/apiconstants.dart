@@ -9,4 +9,10 @@ class ApiConstants {
       "https://spratik.com.np/api/v1/guardian-api/student-fees";
   static const GET_LIBRARY_INFO =
       "https://spratik.com.np/api/v1/guardian-api/student-books";
+  static const GET_SESSION =
+      "https://spratik.com.np/api/v1/guardian-api/sessions-for-student";
+  static const GET_EXAM_FOR_SESSION =
+      "https://spratik.com.np/api/v1/guardian-api/exams-for-session";
+  static const GET_STUDENT_MARKS =
+      "https://spratik.com.np/api/v1/guardian-api/student-marks";
 }
