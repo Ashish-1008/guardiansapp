@@ -5,4 +5,8 @@ class ApiConstants {
       "https://spratik.com.np/api/v1/guardian-api/notices";
   static const GUARDIANS_EVENTS =
       "https://spratik.com.np/api/v1/guardian-api/events";
+  static const GET_BILLS =
+      "https://spratik.com.np/api/v1/guardian-api/student-fees";
+  static const GET_LIBRARY_INFO =
+      "https://spratik.com.np/api/v1/guardian-api/student-books";
 }
