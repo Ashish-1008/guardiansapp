@@ -47,7 +47,9 @@ class MyApp extends StatelessWidget {
             }
             if (state is MasterLoaded) {
               if (state.loggedIn) {
-                return HomePage();
+                return HomePage(
+                  fromLogin: false,
+                );
               } else {
                 return LoginPage();
               }

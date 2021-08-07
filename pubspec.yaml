@@ -77,6 +77,12 @@ flutter:
     - asset/images/DrawingEvent.jpg
     - asset/images/attendance.png
     - asset/images/IMG_9921.JPG
+    - asset/images/eschool.jpg
+    - asset/images/math.jpg
+    - asset/images/science.jpg
+    - asset/images/english.jpg
+    - asset/images/social.jpg
+    - asset/images/computer science.jpg
     - asset/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

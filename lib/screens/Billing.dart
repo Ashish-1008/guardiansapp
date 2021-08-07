@@ -54,6 +54,7 @@ class _BillingBodyState extends State<BillingBody> {
         }
         if (state is BillLoaded) {
           var resp = prepareToShowBill(state.content, dropdownValue);
+          print(resp);
           return ListView(
             children: [
               Padding(
@@ -99,7 +100,117 @@ class _BillingBodyState extends State<BillingBody> {
                   ),
                 ),
               ),
-              resp != null ? Text('kei xa re vai') : Text('Khali raam'),
+              resp != null
+                  ? Container(
+                      child: Column(
+                        children: [
+                          Text(
+                              'Siddhartha Shishu Sadan Higher Secondary School'),
+                          SizedBox(height: 10),
+                          Text('Biratnagar-6,Morang,Nepal'),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Bill No. : 12345'),
+                                Text('Date : ${resp['paid_date']}')
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Fee Title : ${resp['fee_title']}'),
+                                Text(
+                                    'Fee Description : ${resp['fee_description']}')
+                              ],
+                            ),
+                          ),
+                          DataTable(
+                              columnSpacing: 30,
+                              columns: const <DataColumn>[
+                                DataColumn(label: Text('S.N.')),
+                                DataColumn(label: Text('Particulars')),
+                                DataColumn(label: Text('Total'))
+                              ],
+                              rows: [
+                                DataRow(cells: [
+                                  DataCell(Text('1')),
+                                  DataCell(Text('Admission Fee Yearly')),
+                                  DataCell(Text('1'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('2')),
+                                  DataCell(Text('Monthly Fee Yearly')),
+                                  DataCell(Text('1'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('3')),
+                                  DataCell(Text('Library Service Fee')),
+                                  DataCell(Text('1'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('4')),
+                                  DataCell(Text('Registration Form Fee')),
+                                  DataCell(Text('1'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('5')),
+                                  DataCell(Text('Examination Form Fee')),
+                                  DataCell(Text('1'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('6')),
+                                  DataCell(Text('Bus Charge')),
+                                  DataCell(resp['payment_detail']?['bus'] !=
+                                          null
+                                      ? Text('${resp['payment_detail']['bus']}')
+                                      : Text('-'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('7')),
+                                  DataCell(Text('Fine Amount')),
+                                  DataCell(Text('${resp['fine_amount']}'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('8')),
+                                  DataCell(Text('Discount Amount')),
+                                  DataCell(resp['discount_amount'] != null
+                                      ? Text('${resp['discount_amount']}')
+                                      : Text('-'))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('9')),
+                                  DataCell(Text('Grand Total')),
+                                  DataCell(Text('${resp['total_amount']}'))
+                                ]),
+                              ])
+                        ],
+                      ),
+                    )
+                  : Positioned(
+                      child: Container(
+                        child: Center(
+                          child: Container(
+                            padding: EdgeInsets.all(20),
+                            color: Colors.red.shade300,
+                            child: Text(
+                              'Sorry!! No Bill available for searched month',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
             ],
           );
         }

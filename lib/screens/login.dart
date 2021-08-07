@@ -46,7 +46,8 @@ class _LoginPageBodyState extends State<LoginPageBody> {
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => HomePage()),
+                    builder: (BuildContext context) =>
+                        HomePage(fromLogin: true, user: state.user)),
                 (Route<dynamic> route) => false);
           }
         },
@@ -66,13 +67,13 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                       padding: const EdgeInsets.only(top: 30.0),
                       child: Center(
                         child: Container(
-                            height: 150,
-                            width: 150,
-                            margin: EdgeInsets.fromLTRB(0, 120, 0, 30),
+                            height: 200,
+                            width: 200,
+                            margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(
-                                    'asset/images/flutter-logo.png'))),
+                                child:
+                                    Image.asset('asset/images/eschool.jpg'))),
                       ),
                     ),
                     BlocBuilder<LoginBloc, LoginState>(

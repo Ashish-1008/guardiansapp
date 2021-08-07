@@ -77,7 +77,9 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                   ),
                   RaisedButton(
                     onPressed: () {
-                      Get.off(HomePage());
+                      Get.off(HomePage(
+                        fromLogin: false,
+                      ));
                     },
                     child: Text(
                       'Go Back',
@@ -200,7 +202,9 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                               ),
                               RaisedButton(
                                 onPressed: () {
-                                  Get.off(HomePage());
+                                  Get.off(HomePage(
+                                    fromLogin: false,
+                                  ));
                                 },
                                 child: Text(
                                   'Go Back',

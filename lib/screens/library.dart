@@ -95,8 +95,11 @@ class _ReturnedBooksState extends State<ReturnedBooks> {
           padding: EdgeInsets.only(top: 20),
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(
+                  width: 15,
+                ),
                 state.content.length <= 1
                     ? Text(
                         '${state.content.length} Book',
@@ -112,34 +115,14 @@ class _ReturnedBooksState extends State<ReturnedBooks> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                Container(
-                  height: 30,
-                  width: 150,
-                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  decoration: BoxDecoration(
-                      color: MyColor.PaleWhite,
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(
-                        width: 0.5,
-                      )),
-                  child: TextField(
-                      decoration: InputDecoration(
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          hintText: 'Search Books'),
-                      style: TextStyle(
-                          fontSize: 11.0,
-                          //height: 2.0,
-                          color: Colors.black)),
-                ),
               ],
             ),
             SingleChildScrollView(
               padding: EdgeInsets.only(top: 20),
               scrollDirection: Axis.horizontal,
               child: DataTable(
-                headingRowColor:
-                    MaterialStateColor.resolveWith((states) => Colors.blueGrey),
+                headingRowColor: MaterialStateColor.resolveWith(
+                    (states) => Colors.grey.shade300),
                 columns: const <DataColumn>[
                   DataColumn(
                     label: Text(
@@ -224,8 +207,11 @@ class _BorrowedBooksState extends State<BorrowedBooks> {
           padding: EdgeInsets.only(top: 10),
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(
+                  width: 15,
+                ),
                 state.content.length <= 1
                     ? Text(
                         '${state.content.length} Book',
@@ -241,32 +227,14 @@ class _BorrowedBooksState extends State<BorrowedBooks> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                Container(
-                  height: 30,
-                  width: 150,
-                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  decoration: BoxDecoration(
-                      color: MyColor.PaleWhite,
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(
-                        width: 0.5,
-                      )),
-                  child: TextField(
-                      decoration: InputDecoration(
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          hintText: 'Search Books'),
-                      style: TextStyle(
-                          fontSize: 11.0,
-                          //height: 2.0,
-                          color: Colors.black)),
-                ),
               ],
             ),
             SingleChildScrollView(
               padding: EdgeInsets.only(top: 20),
               scrollDirection: Axis.horizontal,
               child: DataTable(
+                headingRowColor: MaterialStateColor.resolveWith(
+                    (states) => Colors.grey.shade300),
                 columns: const <DataColumn>[
                   DataColumn(
                     label: Text(

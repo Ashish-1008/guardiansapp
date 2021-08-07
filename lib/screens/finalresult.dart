@@ -63,7 +63,9 @@ class _ResultPageState extends State<ResultPage> {
                 ),
                 RaisedButton(
                   onPressed: () {
-                    Get.off(HomePage());
+                    Get.off(HomePage(
+                      fromLogin: false,
+                    ));
                   },
                   child: Text(
                     'Go Back',

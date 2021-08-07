@@ -9,7 +9,10 @@ import 'package:guardiansapp/repositories/authentication_repository.dart';
 import 'package:guardiansapp/repositories/notice_repository.dart';
 import 'package:guardiansapp/screens/Billing.dart';
 import 'package:guardiansapp/screens/Events.dart';
+import 'package:guardiansapp/screens/LiveSport.dart';
 import 'package:guardiansapp/screens/Notice.dart';
+import 'package:guardiansapp/screens/assignment/assignment_page.dart';
+import 'package:guardiansapp/screens/attendance.dart';
 import 'package:guardiansapp/screens/library.dart';
 import 'package:guardiansapp/screens/result.dart';
 
@@ -23,9 +26,9 @@ class ListItem {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({
-    Key? key,
-  }) : super(key: key);
+  final bool fromLogin;
+  final user;
+  HomePage({Key? key, required this.fromLogin, this.user}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -38,14 +41,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => LoginBloc(userRepository: userRepository),
-        child: HomePageBody());
+        child: HomePageBody(
+          fromLogin: widget.fromLogin,
+          user: widget.user,
+        ));
   }
 }
 
 class HomePageBody extends StatefulWidget {
   final user;
-
-  HomePageBody({this.user});
+  final bool fromLogin;
+  HomePageBody({this.user, required this.fromLogin});
   @override
   _HomePageBodyState createState() => _HomePageBodyState();
 }
@@ -66,14 +72,14 @@ class _HomePageBodyState extends State<HomePageBody> {
     super.initState();
     _dropdownMenuItems = buildDropDownMenuItems(_dropdownItems);
     _selectedItem = _dropdownMenuItems[0].value!;
-    // getfromshared();
+    getfromshared();
   }
 
-  // getfromshared() async {
-  //   var fetchData = await getFromSharedPreferences('response');
-  //   _data = json.decode(fetchData);
-  //   print(_data);
-  // }
+  getfromshared() async {
+    var fetchData = await getFromSharedPreferences('response');
+    _data = json.decode(fetchData);
+    print(_data);
+  }
 
   // EventRepository eventRepository = EventRepository();
 
@@ -161,12 +167,23 @@ class _HomePageBodyState extends State<HomePageBody> {
                       Container(
                         padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                         child: Row(children: [
-                          Text('Sachin Chemjong',
-                              style: TextStyle(
-                                  color: MyColor.SecondaryColor,
-                                  fontFamily: 'Proxima',
-                                  fontSize: 35,
-                                  fontWeight: FontWeight.bold))
+                          widget.fromLogin
+                              ? Text('${widget.user['name']}',
+                                  style: TextStyle(
+                                      color: MyColor.SecondaryColor,
+                                      fontFamily: 'Proxima',
+                                      fontSize: 35,
+                                      fontWeight: FontWeight.bold))
+                              : widget.fromLogin == false && _data == null
+                                  ? Center(
+                                      child: CircularProgressIndicator(),
+                                    )
+                                  : Text('${_data['data']['name']}',
+                                      style: TextStyle(
+                                          color: MyColor.SecondaryColor,
+                                          fontFamily: 'Proxima',
+                                          fontSize: 35,
+                                          fontWeight: FontWeight.bold))
                         ]),
                       ),
                       Container(
@@ -391,10 +408,10 @@ class _HomePageBodyState extends State<HomePageBody> {
                             )),
                         GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (_) => LiveSport()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => LiveSportsPage()));
                             },
                             child: Container(
                               padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
@@ -434,10 +451,10 @@ class _HomePageBodyState extends State<HomePageBody> {
                             )),
                         GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (_) => AttendanceParent()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => AttendancePage()));
                             },
                             child: Container(
                               padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
@@ -528,10 +545,10 @@ class _HomePageBodyState extends State<HomePageBody> {
                             )),
                         GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (_) => ClassroomForm()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => SubjectPage()));
                             },
                             child: Container(
                               padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
