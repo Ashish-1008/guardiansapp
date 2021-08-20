@@ -19,6 +19,16 @@ class ApiConstants {
       "https://spratik.com.np/api/v1/guardian-api/student-attendance";
   static const GET_STUDENT_ASSIGNMENTS =
       "https://spratik.com.np/api/v1/guardian-api/student-assignments";
+  static const GET_STUDENT_NOTES =
+      "https://spratik.com.np/api/v1/guardian-api/student-notes";
   static const GET_LIVE_SPORTS =
       "https://spratik.com.np/api/v1/guardian-api/live-sports";
+  static const GET_ROUTINE =
+      "https://spratik.com.np/api/v1/guardian-api/get-routine";
+  static const GET_APPLICATON =
+      "https://spratik.com.np/api/v1/guardian-api/get-applications";
+  static const GET_APPLICATION_SUBJECT =
+      "https://spratik.com.np/api/v1/guardian-api/get-application-subjects";
+  static const SAVE_APPLICATION =
+      "https://spratik.com.np/api/v1/guardian-api/save-application";
 }

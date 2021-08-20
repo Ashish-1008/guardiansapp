@@ -56,6 +56,7 @@ class _LiveSportState extends State<LiveSport> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: MyColor.PrimaryColor,
           title: Text('Live Sports'),
         ),
         body: BlocBuilder<LiveSportBloc, LiveSportState>(

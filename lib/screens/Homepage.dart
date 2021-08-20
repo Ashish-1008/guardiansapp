@@ -14,7 +14,9 @@ import 'package:guardiansapp/screens/Notice.dart';
 import 'package:guardiansapp/screens/assignment/assignment_page.dart';
 import 'package:guardiansapp/screens/attendance.dart';
 import 'package:guardiansapp/screens/library.dart';
+import 'package:guardiansapp/screens/notes/notes_page.dart';
 import 'package:guardiansapp/screens/result.dart';
+import 'package:guardiansapp/screens/routine.dart';
 
 import '../MyColors.dart';
 
@@ -227,410 +229,482 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ],
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) => Notice()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                            'asset/images/board.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                                      child: Text(
-                                        'Notice',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) => Events()));
-                              // BlocProvider.of<EventBloc>(context)
-                              //     .add(EventButtonPressed());
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 42,
-                                        width: 42,
-                                        child: Image.asset(
-                                            'asset/images/calendar.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
-                                      child: Text(
-                                        'Events',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) => Billing()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 45,
-                                        width: 45,
-                                        child: Image.asset(
-                                            'asset/images/bill.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
-                                      child: Text(
-                                        'Billing',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                      ],
-                    ),
+                  SizedBox(
+                    height: 20,
                   ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) => Session()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                            'asset/images/result.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                      child: Text(
-                                        'Result',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => LiveSportsPage()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                            'asset/images/live-sports.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                      child: Text(
-                                        'Live sport',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => AttendancePage()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                            'asset/images/attendance.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                      child: Text(
-                                        'Attendance',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => LibraryPage()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                            'asset/images/book.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                      child: Text(
-                                        'Library',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => SubjectPage()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                            'asset/images/add-friend.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 13, 0, 0),
-                                      child: Text(
-                                        'Assignment',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                        GestureDetector(
-                            onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (_) => Classroom()));
-                            },
-                            child: Container(
-                              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.White,
-                              ),
-                              child: Column(children: [
-                                Container(
-                                    child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                        height: 50,
-                                        width: 50,
-                                        child:
-                                            Image.asset('asset/images/bus.png'))
-                                  ],
-                                )),
-                                Container(
-                                  child: Row(children: [
-                                    Container(
-                                      padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                      child: Text(
-                                        'Notes',
-                                        style: TextStyle(
-                                            color: MyColor.PrimaryColor,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    )
-                                  ]),
-                                )
-                              ]),
-                            )),
-                      ],
-                    ),
+                  Wrap(
+                    alignment: WrapAlignment.spaceEvenly,
+                    runSpacing: 15,
+                    spacing: 15,
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => Notice()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child:
+                                          Image.asset('asset/images/board.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                    child: Text(
+                                      'Notice',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => Events()));
+                            // BlocProvider.of<EventBloc>(context)
+                            //     .add(EventButtonPressed());
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 42,
+                                      width: 42,
+                                      child: Image.asset(
+                                          'asset/images/calendar.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
+                                    child: Text(
+                                      'Events',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => Billing()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 45,
+                                      width: 45,
+                                      child:
+                                          Image.asset('asset/images/bill.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
+                                    child: Text(
+                                      'Billing',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => RoutinePage()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child:
+                                          Image.asset('asset/images/book.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                    child: Text(
+                                      'Routine',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => Session()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child: Image.asset(
+                                          'asset/images/result.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                    child: Text(
+                                      'Result',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => LiveSportsPage()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child: Image.asset(
+                                          'asset/images/live-sports.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                    child: Text(
+                                      'Live sport',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => AttendancePage()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child: Image.asset(
+                                          'asset/images/attendance.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                    child: Text(
+                                      'Attendance',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => LibraryPage()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child:
+                                          Image.asset('asset/images/book.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                    child: Text(
+                                      'Library',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => SubjectPage()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child: Image.asset(
+                                          'asset/images/add-friend.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 13, 0, 0),
+                                    child: Text(
+                                      'Assignment',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => SubjectPageForNotes()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child:
+                                          Image.asset('asset/images/bus.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                    child: Text(
+                                      'Notes',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                      GestureDetector(
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (_) => SubjectPage()));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: MyColor.White,
+                            ),
+                            child: Column(children: [
+                              Container(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                      height: 50,
+                                      width: 50,
+                                      child: Image.asset(
+                                          'asset/images/add-friend.png'))
+                                ],
+                              )),
+                              Container(
+                                child: Row(children: [
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(0, 13, 0, 0),
+                                    child: Text(
+                                      'Application',
+                                      style: TextStyle(
+                                          color: MyColor.PrimaryColor,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ]),
+                              )
+                            ]),
+                          )),
+                    ],
                   ),
                 ],
               ),

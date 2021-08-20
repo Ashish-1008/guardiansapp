@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:guardiansapp/MyColors.dart';
 import 'package:intl/intl.dart';
 
-class Assignments extends StatefulWidget {
+class Notes extends StatefulWidget {
   final String subject;
-  final List assignments;
-  Assignments({Key? key, required this.subject, required this.assignments})
+  final List notes;
+  Notes({Key? key, required this.subject, required this.notes})
       : super(key: key);
 
   @override
-  _AssignmentsState createState() => _AssignmentsState();
+  _NotesState createState() => _NotesState();
 }
 
-class _AssignmentsState extends State<Assignments> {
-  _showPopUp(assignment) {
+class _NotesState extends State<Notes> {
+  _showPopUp(notes) {
     return showDialog(
       context: context,
       builder: (context) {
@@ -45,7 +44,7 @@ class _AssignmentsState extends State<Assignments> {
                       ),
                       Center(
                         child: Text(
-                          assignment['title'],
+                          notes['title'],
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -55,23 +54,13 @@ class _AssignmentsState extends State<Assignments> {
                       SizedBox(
                         height: 15,
                       ),
-                      Center(
-                        child: Text(
-                          'Due Date: ' +
-                              DateFormat.yMd().add_jm().format(
-                                    DateTime.parse(assignment['due_date']),
-                                  ),
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                      ),
                       SizedBox(
                         height: 20,
                       ),
                       Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Html(
-                            data: assignment['description'],
+                            data: notes['description'],
                             style: {
                               'p': Style(
                                 fontSize: FontSize(20.0),
@@ -83,7 +72,7 @@ class _AssignmentsState extends State<Assignments> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
-                        child: Text('Author : ' + assignment['author']),
+                        child: Text('Author : ' + notes['author']),
                       ),
                     ],
                   ),
@@ -120,16 +109,15 @@ class _AssignmentsState extends State<Assignments> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: MyColor.PrimaryColor,
-          title: Text('Assignments'),
+          title: Text('Notes'),
         ),
         body: ListView.separated(
-            itemCount: widget.assignments.length,
+            itemCount: widget.notes.length,
             itemBuilder: (context, index) {
               return ListTile(
                 contentPadding: EdgeInsets.fromLTRB(25, 0, 25, 0),
                 title: Text(
-                  "${widget.assignments[index]['title']}",
+                  "${widget.notes[index]['title']}",
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
@@ -138,11 +126,11 @@ class _AssignmentsState extends State<Assignments> {
                 subtitle: Text(
                   'Created At: ' +
                       DateFormat.yMd().format(DateTime.parse(
-                          "${widget.assignments[index]['created_at']}")),
+                          "${widget.notes[index]['created_at']}")),
                 ),
                 trailing: GestureDetector(
                   onTap: () {
-                    _showPopUp(widget.assignments[index]);
+                    _showPopUp(widget.notes[index]);
                   },
                   child: Icon(
                     Icons.visibility,
